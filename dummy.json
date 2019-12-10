@@ -1,0 +1,177 @@
+{
+	"version": "1.0.0",
+	"file_dst": "output",
+	"muxer_program": [
+		"tmuxer-every",
+		"tmuxer-event"
+	],
+	"sender_program": "tsender",
+	"make_folder_interval": 30,
+	"rec_sec": 60,
+	"codec": 1,
+	"udp_muxer_ip": "192.168.2.66",
+	"udp_muxer_port": [
+		5006,
+		5007
+	],
+	"udp_sender_ip": "192.168.2.78",
+	"udp_sender_port": 5016,
+	"udp_target_ip" : "192.168.2.78",
+	"udp_target_port" : 5008,
+	"channels": [
+		{
+			"ip": "228.67.43.91",
+			"port": 19262,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.43.92",
+			"port": 19263,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.43.93",
+			"port": 19264,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.43.94",
+			"port": 19265,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.43.95",
+			"port": 19266,
+			"width": 1024,
+			"height": 1024,
+			"fps": 4,
+			"num": 1,
+			"den": 4,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.43.96",
+			"port": 19267,
+			"width": 1024,
+			"height": 1024,
+			"fps": 4,
+			"num": 1,
+			"den": 4,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.43.97",
+			"port": 19268,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "audio"
+		},
+		{
+			"ip": "228.67.43.98",
+			"port": 19269,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "audio"
+		}
+	],
+	"output_channels": [
+		{
+			"ip": "228.67.45.91",
+			"port": 19262,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.45.92",
+			"port": 19263,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.45.93",
+			"port": 19264,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.45.94",
+			"port": 19265,
+			"width": 720,
+			"height": 240,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.45.95",
+			"port": 19266,
+			"width": 1024,
+			"height": 1024,
+			"fps": 4,
+			"num": 1,
+			"den": 4,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.45.96",
+			"port": 19267,
+			"width": 1024,
+			"height": 1024,
+			"fps": 4,
+			"num": 1,
+			"den": 4,
+			"type": "video"
+		},
+		{
+			"ip": "228.67.45.97",
+			"port": 19268,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "audio"
+		},
+		{
+			"ip": "228.67.45.98",
+			"port": 19269,
+			"fps": 59.94,
+			"num": 1001,
+			"den": 60000,
+			"type": "audio"
+		}
+	]
+}
