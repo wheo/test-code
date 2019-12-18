@@ -3,6 +3,8 @@
 
 bool exit_flag_main = false;
 
+// 2019-12-19 clone 후 commit 후 push 되는지 테스트
+
 pthread_mutex_t sleepMutex;
 pthread_cond_t sleepCond;
 
