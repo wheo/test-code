@@ -8,11 +8,11 @@
 # DECKLINK_SDK_DIR = ../sdk
 
 CC = g++
-CFLAGS = -std=c++11 -Wno-multichar -fno-rtti -D__STDC_CONSTANT_MACROS -D_FILE_OFFSET_BITS=64
+CFLAGS = -std=c++11 -Wno-multichar -fno-rtti -D__STDC_CONSTANT_MACROS -D_FILE_OFFSET_BITS=64 -DNO_FREETYPE -I../ffmpeg/include
 
-CPPFLAGS = -std=c++11 -D__STDC_CONSTANT_MACROS -D_FILE_OFFSET_BITS=64
+CPPFLAGS = -std=c++11 -D__STDC_CONSTANT_MACROS -D_FILE_OFFSET_BITS=64 -I../ffmpeg/include 
 
-LFLAGS = -lrt -lz -lm -ldl -lbz2 -lpthread -L/usr/local/lib
+LFLAGS = -lrt -lz -lm -ldl -lbz2 -lpthread -L/usr/local/lib -L../ffmpeg/lib -lavfilter -lpostproc -lswscale -lavformat -lavcodec -lavutil -lfdk-aac -lmp3lame -lopus -lvpx -lswresample -lx264 -lx265
 
 CONFIG = release 
 
