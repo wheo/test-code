@@ -8,6 +8,8 @@
         "initializer_list": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "fstream": "cpp",
+        "thread": "cpp"
     }
 }

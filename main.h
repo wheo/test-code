@@ -14,6 +14,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <assert.h>
+#include <arpa/inet.h>
 
 extern "C"
 {
@@ -31,6 +32,14 @@ extern "C"
 
 #include "misc.h"
 #include "json/json.h"
+
+#define PACKET_HEADER_SIZE 24
+#define PACKET_SIZE 4096
+
+#define _d(fmt, args...)     \
+    {                        \
+        printf(fmt, ##args); \
+    }
 
 using namespace std;
 using namespace std::chrono;

@@ -17,14 +17,23 @@ void sigfunc(int signum)
 	pthread_cond_signal(&sleepCond);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+	if (argc < 2)
+	{
+		cout << "[MAIN] example) ./test-code filename" << endl;
+		exit(0);
+	}
+
+	string filename = argv[1];
+	int sec = atoi(argv[2]);
+
 	signal(SIGINT, sigfunc);
 	signal(SIGTERM, sigfunc);
 	signal(SIGHUP, sigfunc);
 
 	CCore *core = new CCore();
-	core->Create();
+	core->Create(filename, sec);
 
 	high_resolution_clock::time_point begin = high_resolution_clock::now();
 	while (!exit_flag_main)
