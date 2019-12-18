@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <thread>
 
 #include <signal.h>
 #include <math.h>

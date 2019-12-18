@@ -26,33 +26,35 @@ bool CCore::Create()
 
 void CCore::Run()
 {
-	int64_t tick_diff;
+	int64_t tick_diff = 0;
 	int64_t num, den;
 	int64_t acc_time = 0;
-	double sec = 0;
-	double fps;
+	int64_t acc_sec = 0;
+	double target_time;
 	num = 1001;
-	den = 60000;
-	fps = (double)num / (double)den * 1000000;
-	high_resolution_clock::time_point begin = high_resolution_clock::now();
+	den = 30000;
+	target_time = (double)num / (double)den * 1000000;
+	high_resolution_clock::time_point begin;
+	high_resolution_clock::time_point end;
+	cout << tick_diff << endl;
+	begin = high_resolution_clock::now();
 	while (!m_bExit)
 	{
-#if 0
-		usleep(1); // 1000000 ms = 1 sec
-		if (acc_time < fps)
+
+#if 1
+		while (tick_diff < target_time)
 		{
-			acc_time += tick_diff;
+			//usleep(1); // 1000000 us = 1 sec
+			end = high_resolution_clock::now();
+			tick_diff = duration_cast<microseconds>(end - begin).count();
+			//cout << tick_diff << endl;
+			this_thread::sleep_for(microseconds(1));
+			//acc_time += tick_diff;
+			//begin = high_resolution_clock::now();
 		}
-		else
-		{
-			cout << "[CORE] diff : " << acc_time << ", fps : " << fps << endl;
-			//cout << "[CORE] sec : " << sec << endl;
-			acc_time = 0;
-		}
-		high_resolution_clock::time_point end = high_resolution_clock::now();
-		tick_diff = duration_cast<microseconds>(end - begin).count();
-		//sec += (double)tick_diff / 1000000;
-		begin = high_resolution_clock::now();
+		begin = end;
+		cout << "[CORE] num : " << num << ", den : " << den << ", target_time : " << target_time << ", tick_diff : " << tick_diff << endl;
+		tick_diff = 0;
 #else
 		string path = "./dummy.json";
 		if (false)
@@ -99,22 +101,26 @@ void CCore::Run()
 					builder["indentation"] = "   "; // tab
 					std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
 
-					writer->write(root, &cout);
+					info["path"] = "output/blabla";
 
-					root["channel"] = "testjson1";
+					root["files-array"].append(info);
 
-					root["channel"].clear();
-					//root["channels"].clear();
-					//root["channels"].empty();
 					writer->write(root, &cout);
 
 					//info["test"] = "testjson-append";
 					//root["channels"].append(info);
-					writer->write(root, &cout);
+					//writer->write(root, &cout);
+					root["channels"][0].clear();
+					root["channels"][0] = "";
 
 					std::ofstream ofs(path);
 					writer->write(root, &ofs);
 					ofs.close();
+				}
+				else
+				{
+					cout << "[CORE] failed to parse" << endl;
+					usleep(100000);
 				}
 			}
 		}
